@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mbair--cilium
+  namespace: argocd
+spec:
+  project: mbair
+  source:
+    repoURL: 'https://github.com/amanibhavam/spiral-mbair'
+    path: cilium
+    targetRevision: 0.0.1
+  destination:
+    name: mbair
+    namespace: cilium
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
