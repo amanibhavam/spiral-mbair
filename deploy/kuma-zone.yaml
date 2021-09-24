@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mini--kuma-zone
+  name: mbair--kuma-zone
   namespace: argocd
 spec:
-  project: mini
+  project: mbair
   source:
     repoURL: 'https://github.com/amanibhavam/spiral-mbair'
     path: kuma-zone
     targetRevision: master
   destination:
-    name: mini
+    name: mbair
     namespace: kuma-system
   syncPolicy:
     automated:
